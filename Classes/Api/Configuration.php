@@ -234,14 +234,14 @@ class Tx_Contexts_Api_Configuration
     protected static function addToTcaColumns($table, array $settings)
     {
         global $TCA;
-
-        t3lib_div::loadTCA($table);
+        // removed in TYPO3 7
+        //t3lib_div::loadTCA($table);
 
         if (!isset($TCA[$table])) {
             return;
         }
-
-        t3lib_div::loadTCA('tx_contexts_contexts');
+        // removed in TYPO3 7
+        //t3lib_div::loadTCA('tx_contexts_contexts');
 
         if (!array_key_exists(self::RECORD_SETTINGS_COLUMN, $TCA[$table]['columns'])) {
             $recordSettingsConf = array(
@@ -369,7 +369,8 @@ class Tx_Contexts_Api_Configuration
             'flexFile' => $flexFile,
         );
 
-        t3lib_div::loadTCA('tx_contexts_contexts');
+        // removed in TYPO3 7
+        //t3lib_div::loadTCA('tx_contexts_contexts');
 
         if (isset($TCA['tx_contexts_contexts']['columns']['type'])) {
             $TCA['tx_contexts_contexts']['columns']['type']['config']
